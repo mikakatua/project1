@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: idp-dev
+  namespace: argocd
+spec:
+  project: keycloak
+  destination:
+    name: cluster1
+    namespace: keycloak-dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  sources:
+  - repoURL: https://charts.bitnami.com/bitnami
+    chart: keycloak
+    targetRevision: 13.1.1
+    helm:
+      releaseName: keycloak
+      valueFiles:
+      - $values/helm/idp-dev.yaml
+  - repoURL: https://github.com/mikakatua/project1.git
+    targetRevision: develop
+    ref: values

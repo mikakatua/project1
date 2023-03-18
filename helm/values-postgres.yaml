@@ -1,0 +1,18 @@
+fullnameOverride: postgres-15
+
+image:
+  repository: bitnami/postgresql
+  tag: 15.2.0-debian-11-r5
+
+auth:
+  enablePostgresUser: true
+  postgresPassword: "postgres"
+  username: "keycloak_dev"
+  password: "GBnX9TVnmi"
+  database: "keycloak_dev"
+
+primary:
+  persistence:
+    storageClass: "hostpath"
+    size: 1Gi
+
