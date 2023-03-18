@@ -19,7 +19,7 @@ spec:
     helm:
       releaseName: keycloak
       valueFiles:
-      - $values/helm/idp-dev.yaml
+      - $values/helm/values-idp-dev.yaml
   - repoURL: https://github.com/mikakatua/project1.git
     targetRevision: develop
     ref: values
